@@ -16,8 +16,16 @@ export const metadata: Metadata = {
   title: "Beevora Labs | Innovating Tomorrow's Technology",
   description: "Beevora Labs - Your partner in digital transformation. We provide cutting-edge SaaS solutions including TotO-L Omni-channel Platform and Orbit-Trace CRM.",
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: [
+      { url: "/icon.ico/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon.ico/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.ico/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon.ico/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/icon.ico/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/icon.ico/favicon.ico"],
   },
 };
 
