@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTheme } from "@/hooks/useTheme";
 import { Menu, X } from "lucide-react";
 
 interface NavbarSimpleProps {
@@ -11,7 +12,7 @@ interface NavbarSimpleProps {
 export default function NavbarSimple({ showToggle = false }: NavbarSimpleProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(true);
+    const { isDarkMode, toggleDarkMode } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,28 +22,6 @@ export default function NavbarSimple({ showToggle = false }: NavbarSimpleProps) 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            setIsDarkMode(savedTheme === "dark");
-        }
-    }, []);
-
-    useEffect(() => {
-        const html = document.documentElement;
-        if (isDarkMode) {
-            html.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            html.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    }, [isDarkMode]);
-
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-    };
 
     const navLinks = [
         { name: "Home", href: "/" },
@@ -54,11 +33,11 @@ export default function NavbarSimple({ showToggle = false }: NavbarSimpleProps) 
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? "bg-background/95 backdrop-blur-md shadow-lg"
+                    ? "bg-background/95 backdrop-blur-md shadow-sm dark:shadow-lg"
                     : "bg-transparent"
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="site-container">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
@@ -67,8 +46,8 @@ export default function NavbarSimple({ showToggle = false }: NavbarSimpleProps) 
                             alt="Beevora Labs"
                             className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-contain"
                         />
-                        <span className="text-lg md:text-xl font-bold text-foreground">
-                            Beevora<span className="text-neon-green">Labs</span>
+                        <span className="text-lg md:text-xl font-display font-bold text-foreground">
+                            Beevora<span className="text-neon-amber">Labs</span>
                         </span>
                     </Link>
 
@@ -78,7 +57,7 @@ export default function NavbarSimple({ showToggle = false }: NavbarSimpleProps) 
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-foreground/80 hover:text-neon-green transition-colors duration-200 text-sm font-medium"
+                                className="text-foreground/80 hover:text-neon-amber transition-colors duration-200 text-sm font-medium"
                             >
                                 {link.name}
                             </Link>
@@ -90,10 +69,10 @@ export default function NavbarSimple({ showToggle = false }: NavbarSimpleProps) 
                         {showToggle && (
                             <button
                                 onClick={toggleDarkMode}
-                                className="p-2 rounded-lg hover:bg-neon-green/10 transition-colors duration-200"
+                                className="p-2 rounded-lg hover:bg-[#f59e0b]/10 transition-colors duration-200"
                                 aria-label="Toggle dark mode"
                             >
-                                <span className="text-neon-green text-sm font-medium">
+                                <span className="text-[#fbbf24] text-sm font-medium">
                                     {isDarkMode ? "🌙" : "☀️"}
                                 </span>
                             </button>
@@ -102,7 +81,7 @@ export default function NavbarSimple({ showToggle = false }: NavbarSimpleProps) 
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="md:hidden p-2 rounded-lg hover:bg-neon-green/10 transition-colors duration-200"
+                            className="md:hidden p-2 rounded-lg hover:bg-[#f59e0b]/10 transition-colors duration-200"
                             aria-label="Toggle menu"
                         >
                             {isMobileMenuOpen ? (
@@ -123,7 +102,7 @@ export default function NavbarSimple({ showToggle = false }: NavbarSimpleProps) 
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-foreground/80 hover:text-neon-green transition-colors duration-200 text-sm font-medium py-2"
+                                    className="text-foreground/80 hover:text-neon-amber transition-colors duration-200 text-sm font-medium py-2"
                                 >
                                     {link.name}
                                 </Link>

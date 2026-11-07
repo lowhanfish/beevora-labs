@@ -1,53 +1,35 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useTheme } from "@/hooks/useTheme";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Products from "./Products";
 import Features from "./Features";
+import InteractiveDemo from "./InteractiveDemo";
 import About from "./About";
 import CTASection from "./CTASection";
 import Footer from "./Footer";
+import CyberGridCanvas from "./canvas/CyberGridCanvas";
 
 export default function MainContent() {
-    const [isDarkMode, setIsDarkMode] = useState(true);
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
-    useEffect(() => {
-        // Check for saved preference or use system preference
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            setIsDarkMode(savedTheme === "dark");
-        } else {
-            // Default to dark mode for futuristic feel
-            setIsDarkMode(true);
-        }
-    }, []);
+  return (
+    <div className="relative min-h-screen selection:bg-[#f59e0b]/30 selection:text-foreground">
+      {/* Interactive 3D constellation & cyber grid background canvas */}
+      <CyberGridCanvas />
 
-    useEffect(() => {
-        // Apply dark mode class to html element
-        const html = document.documentElement;
-        if (isDarkMode) {
-            html.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            html.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    }, [isDarkMode]);
-
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-    };
-
-    return (
-        <>
-            <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-            <Hero />
-            <Products />
-            <Features />
-            <About />
-            <CTASection />
-            <Footer />
-        </>
-    );
+      {/* Main layout contents */}
+      <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <main className="relative z-10">
+        <Hero />
+        <Products />
+        <Features />
+        <InteractiveDemo />
+        <About />
+        <CTASection />
+      </main>
+      <Footer />
+    </div>
+  );
 }

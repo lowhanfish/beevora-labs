@@ -183,7 +183,7 @@ export default function TermsOfService() {
                             <p className="text-foreground/80">
                                 For questions about these Terms:
                             </p>
-                            <p className="text-neon-green font-medium mt-2">
+                            <p className="text-[#f59e0b] font-medium mt-2">
                                 Email: lowhanfish@gmail.com
                             </p>
                         </section>

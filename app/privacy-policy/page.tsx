@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
                             <p className="text-foreground/80">
                                 If you have questions about this Privacy Policy, please contact us at:
                             </p>
-                            <p className="text-neon-green font-medium mt-2">
+                            <p className="text-[#f59e0b] font-medium mt-2">
                                 Email: lowhanfish@gmail.com
                             </p>
                         </section>

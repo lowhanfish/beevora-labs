@@ -1,198 +1,207 @@
 "use client";
 
-import { Target, Eye, Heart, Mail, Globe, Code } from "lucide-react";
+import { Target, Eye, Heart, Mail, Globe, Code2, Sparkles } from "lucide-react";
+import TiltCard from "./ui/TiltCard";
+import BorderBeam from "./ui/BorderBeam";
 
 const stats = [
-    { value: "2025", label: "Founded" },
-    { value: "3", label: "Countries" },
-    { value: "78", label: "Active Users" },
-    { value: "99.9%", label: "Uptime" },
+  { value: "2025", label: "Year Founded", change: "Day One Innovation" },
+  { value: "3+", label: "Target Regions", change: "Global Delivery" },
+  { value: "78+", label: "Active Enterprise Orgs", change: "Pacing +180%" },
+  { value: "99.9%", label: "System Uptime SLA", change: "Zero Downtime Deploy" },
 ];
 
 const teamMembers = [
-    {
-        name: "Riswan M Rizal",
-        role: "FullStack Engineer",
-        image: "/images/photo2.png",
-    },
-    {
-        name: "Kiken S Batara",
-        role: "AI Engineer",
-        image: "/images/photo1.png",
-    },
-    {
-        name: "Hidayat Darmawan",
-        role: "Frontend Engineer",
-        image: "/images/photo3.png",
-    },
-    {
-        name: "Asrif Fajar Hidayat",
-        role: "DevOps",
-        image: "/images/photo5.png",
-    },
-    {
-        name: "Fajar Syahputra",
-        role: "Backend Engineer",
-        image: "/images/photo4.png",
-    },
-    {
-        name: "Iksan Sinatra",
-        role: "Backend Engineer",
-        image: "/images/photo6.png",
-    },
+  {
+    name: "Riswan M Rizal",
+    role: "FullStack Engineer",
+    image: "/images/photo2.png",
+    specialty: "Distributed Systems & Next.js",
+  },
+  {
+    name: "Kiken S Batara",
+    role: "AI Engineer",
+    image: "/images/photo1.png",
+    specialty: "LLM Pipeline & Predictive Ops",
+  },
+  {
+    name: "Hidayat Darmawan",
+    role: "Frontend Engineer",
+    image: "/images/photo3.png",
+    specialty: "High-Perf UX & 3D Interactive",
+  },
+  {
+    name: "Asrif Fajar Hidayat",
+    role: "DevOps Engineer",
+    image: "/images/photo5.png",
+    specialty: "Kubernetes & Edge Mesh",
+  },
+  {
+    name: "Fajar Syahputra",
+    role: "Backend Engineer",
+    image: "/images/photo4.png",
+    specialty: "High Concurrency & Redis",
+  },
+  {
+    name: "Iksan Sinatra",
+    role: "Backend Engineer",
+    image: "/images/photo6.png",
+    specialty: "Database Engines & APIs",
+  },
 ];
 
 const values = [
-    {
-        icon: Eye,
-        title: "Vision",
-        description: "To be the leading force in digital transformation, empowering businesses worldwide with innovative SaaS solutions.",
-    },
-    {
-        icon: Target,
-        title: "Mission",
-        description: "To deliver cutting-edge platforms that simplifies operations, enhances customer engagement, and drives measurable growth.",
-    },
-    {
-        icon: Heart,
-        title: "Values",
-        description: "Innovation, integrity, and customer-centricity are at the heart of everything we do. We believe in building lasting partnerships.",
-    },
+  {
+    icon: Eye,
+    title: "Relentless Innovation",
+    description: "We don't settle for standard SaaS templates. We build high-velocity platforms designed for tomorrow's internet scale.",
+    gradient: "from-amber-400/20 dark:from-yellow-300/25 to-transparent",
+  },
+  {
+    icon: Target,
+    title: "Precision Engineering",
+    description: "Sub-15ms latency, bank-grade encryption, and intuitive micro-interactions that make powerful systems feel effortless.",
+    gradient: "from-amber-500/20 dark:from-yellow-400/25 to-transparent",
+  },
+  {
+    icon: Heart,
+    title: "Customer Velocity",
+    description: "Every feature we ship directly accelerates our clients' revenue, user retention, and team productivity.",
+    gradient: "from-orange-500/20 dark:from-yellow-500/25 to-transparent",
+  },
 ];
 
 export default function About() {
-    return (
-        <section id="about" className="py-20 md:py-32 bg-card-bg/30">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-green/10 border border-neon-green/20 mb-6">
-                        <span className="text-sm text-neon-green font-medium">About Us</span>
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                        <span className="text-foreground">Who We</span>{" "}
-                        <span className="text-neon-green">Are</span>
-                    </h2>
-                    <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-                        We are a team of passionate technologists dedicated to transforming
-                        how businesses operate in the digital age.
-                    </p>
+  return (
+    <section id="about" className="section-spacing relative">
+      <div className="site-container relative z-10">
+
+        {/* Section Header */}
+        <div className="section-header">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-yellow-400/15 border border-amber-500/25 dark:border-yellow-400/25 text-amber-700 dark:text-yellow-300 text-xs font-sans mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>THE COLLECTIVE BEHIND BEEVORA</span>
+          </div>
+
+          <h2 className="section-title">
+            <span className="text-foreground">Obsessed With Craft,</span>{" "}
+            <span className="bg-gradient-to-r from-amber-700 via-amber-600 to-orange-700 dark:from-yellow-300 dark:via-yellow-400 dark:to-amber-400 bg-clip-text text-transparent glow-text">
+              Driven By Velocity
+            </span>
+          </h2>
+
+          <p className="text-foreground/75 text-base lg:text-lg">
+            We are builders, systems architects, and designers based in Indonesia, crafting
+            enterprise-grade SaaS technologies for businesses across the globe.
+          </p>
+        </div>
+
+        {/* Live Metrics Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-20">
+          {stats.map((stat) => (
+            <TiltCard key={stat.label} maxRotation={10} glowColor="rgba(250, 204, 21, 0.25)">
+              <div className="glass-panel p-6 rounded-2xl border border-card-border text-center relative overflow-hidden">
+                <p className="text-3xl sm:text-4xl font-extrabold text-amber-700 dark:text-yellow-400 font-sans mb-1">
+                  {stat.value}
+                </p>
+                <p className="text-sm font-semibold text-foreground mb-1">{stat.label}</p>
+                <p className="text-[11px] font-sans text-foreground/65">{stat.change}</p>
+              </div>
+            </TiltCard>
+          ))}
+        </div>
+
+        {/* Values Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mb-24">
+          {values.map((v) => (
+            <TiltCard key={v.title} maxRotation={8} glowColor="rgba(250, 204, 21, 0.25)">
+              <div className="glass-panel p-8 rounded-3xl border border-card-border h-full relative overflow-hidden">
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${v.gradient} rounded-full blur-2xl pointer-events-none`} />
+                <div className="w-12 h-12 rounded-2xl bg-card-bg border border-card-border flex items-center justify-center text-amber-700 dark:text-yellow-300 mb-6">
+                  <v.icon className="w-6 h-6" />
                 </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">{v.title}</h3>
+                <p className="text-sm text-foreground/70 leading-relaxed">{v.description}</p>
+              </div>
+            </TiltCard>
+          ))}
+        </div>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-                    {stats.map((stat, index) => (
-                        <div
-                            key={stat.label}
-                            className="p-6 rounded-2xl bg-card-bg border border-card-border text-center"
-                        >
-                            <p className="text-3xl lg:text-4xl font-bold text-neon-green mb-1">
-                                {stat.value}
-                            </p>
-                            <p className="text-sm text-foreground/60">{stat.label}</p>
-                        </div>
-                    ))}
+        {/* Team Members Section */}
+        <div>
+          <div className="text-center mb-12">
+            <h3 className="text-2xl sm:text-4xl font-bold text-foreground mb-3">
+              Meet The <span className="text-amber-700 dark:text-yellow-400">Core Team</span>
+            </h3>
+            <p className="text-foreground/70 text-sm max-w-xl mx-auto">
+              The engineers and technologists pushing code every day to redefine digital communication.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {teamMembers.map((member) => (
+              <TiltCard key={member.name} maxRotation={10} glowColor="rgba(250, 204, 21, 0.25)">
+                <div className="glass-panel p-6 rounded-3xl border border-card-border text-center relative overflow-hidden group">
+                  <BorderBeam size={180} duration={10} colorFrom="#fef08a" colorTo="#facc15" />
+
+                  {/* Avatar with amber/yellow cyber ring */}
+                  <div className="relative w-28 h-28 mx-auto mb-5">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-400 via-amber-500 to-orange-500 dark:from-yellow-300 dark:via-yellow-400 dark:to-amber-500 p-0.5 animate-pulse-subtle">
+                      <div className="w-full h-full rounded-full overflow-hidden bg-black/60">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                    <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-amber-500 dark:bg-yellow-400 border-2 border-background" />
+                  </div>
+
+                  <h4 className="text-base lg:text-lg font-bold text-foreground mb-1">
+                    {member.name}
+                  </h4>
+                  <p className="text-xs font-sans font-medium text-amber-700 dark:text-yellow-300 mb-2">
+                    {member.role}
+                  </p>
+                  <p className="text-xs text-foreground/60 mb-5">
+                    {member.specialty}
+                  </p>
+
+                  <div className="flex items-center justify-center gap-2 pt-4 border-t border-card-border">
+                    <a
+                      href="mailto:hello@beevora.com"
+                      className="p-2 rounded-xl bg-card-bg border border-card-border hover:text-amber-500 dark:hover:text-yellow-300 hover:border-amber-500/40 dark:hover:border-yellow-400/40 transition-colors"
+                      aria-label="Email"
+                    >
+                      <Mail className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://beevora.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-xl bg-card-bg border border-card-border hover:text-amber-500 dark:hover:text-yellow-300 hover:border-amber-500/40 dark:hover:border-yellow-400/40 transition-colors"
+                      aria-label="Website"
+                    >
+                      <Globe className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://github.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-xl bg-card-bg border border-card-border hover:text-amber-500 dark:hover:text-yellow-300 hover:border-amber-500/40 dark:hover:border-yellow-400/40 transition-colors"
+                      aria-label="Code"
+                    >
+                      <Code2 className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
+              </TiltCard>
+            ))}
+          </div>
+        </div>
 
-                {/* About Content */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    {/* Left - Image */}
-                    <div className="relative">
-                        <div className="rounded-2xl overflow-hidden bg-card-bg border border-card-border">
-                            <img
-                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop"
-                                alt="Beevora Labs Team"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        {/* Decorative elements */}
-                        <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-neon-green/30 rounded-tr-xl" />
-                        <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-neon-green/30 rounded-bl-xl" />
-                    </div>
-
-                    {/* Right - Content */}
-                    <div>
-                        <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
-                            Pioneering Digital Excellence Since 2025
-                        </h3>
-
-                        <p className="text-foreground/70 mb-8 text-lg">
-                            Beevora Labs was founded with a clear vision: to make enterprise-grade
-                            technology accessible to businesses of all sizes. Today, we serve
-                            thousands of customers across 50+ countries, helping them transform
-                            their operations and deliver exceptional customer experiences.
-                        </p>
-
-                        {/* Values */}
-                        <div className="space-y-6">
-                            {values.map((value) => (
-                                <div
-                                    key={value.title}
-                                    className="flex gap-4 p-4 rounded-xl bg-card-bg/50 border border-card-border"
-                                >
-                                    <div className="w-10 h-10 rounded-lg bg-neon-green/10 flex items-center justify-center flex-shrink-0">
-                                        <value.icon className="w-5 h-5 text-neon-green" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-foreground mb-1">
-                                            {value.title}
-                                        </h4>
-                                        <p className="text-sm text-foreground/70">
-                                            {value.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Team Section */}
-                <div className="mt-20">
-                    <div className="text-center mb-12">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-                            Meet Our <span className="text-neon-green">Team</span>
-                        </h3>
-                        <p className="text-foreground/70 max-w-2xl mx-auto">
-                            The passionate people behind Beevora Labs who make innovation happen.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6">
-                        {teamMembers.map((member) => (
-                            <div
-                                key={member.name}
-                                className="p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl bg-card-bg border border-card-border text-center card-hover"
-                            >
-                                <div className="w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden border-2 border-neon-green/30">
-                                    <img
-                                        src={member.image}
-                                        alt={member.name}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                                <h4 className="font-semibold text-foreground mb-1 text-xs sm:text-sm">
-                                    {member.name}
-                                </h4>
-                                <p className="text-xs text-neon-green mb-2 sm:mb-3">
-                                    {member.role}
-                                </p>
-                                <div className="flex justify-center gap-2 sm:gap-3">
-                                    <button className="p-1.5 sm:p-2 rounded-lg hover:bg-neon-green/10 transition-colors">
-                                        <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-foreground/60" />
-                                    </button>
-                                    <button className="p-1.5 sm:p-2 rounded-lg hover:bg-neon-green/10 transition-colors">
-                                        <Globe className="w-3 h-3 sm:w-4 sm:h-4 text-foreground/60" />
-                                    </button>
-                                    <button className="p-1.5 sm:p-2 rounded-lg hover:bg-neon-green/10 transition-colors">
-                                        <Code className="w-3 h-3 sm:w-4 sm:h-4 text-foreground/60" />
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }

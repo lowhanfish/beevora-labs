@@ -45,15 +45,15 @@ export default function DataDeletion() {
                                 {/* Method 1 */}
                                 <div className="bg-card-bg border border-card-border rounded-xl p-5">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-lg bg-neon-green/10 flex items-center justify-center flex-shrink-0">
-                                            <Mail className="w-5 h-5 text-neon-green" />
+                                        <div className="w-10 h-10 rounded-lg bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">
+                                            <Mail className="w-5 h-5 text-[#f59e0b]" />
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-foreground mb-1">Via Email (Primary Method)</h3>
                                             <p className="text-foreground/70 text-sm mb-2">
                                                 Send an email request to:
                                             </p>
-                                            <p className="text-neon-green font-medium">
+                                            <p className="text-[#f59e0b] font-medium">
                                                 lowhanfish@gmail.com
                                             </p>
                                             <p className="text-foreground/60 text-sm mt-2">
@@ -66,8 +66,8 @@ export default function DataDeletion() {
                                 {/* Method 2 */}
                                 <div className="bg-card-bg border border-card-border rounded-xl p-5">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-lg bg-neon-green/10 flex items-center justify-center flex-shrink-0">
-                                            <Clock className="w-5 h-5 text-neon-green" />
+                                        <div className="w-10 h-10 rounded-lg bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">
+                                            <Clock className="w-5 h-5 text-[#f59e0b]" />
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-foreground mb-1">Via Account Settings</h3>
@@ -84,8 +84,8 @@ export default function DataDeletion() {
                                 {/* Method 3 */}
                                 <div className="bg-card-bg border border-card-border rounded-xl p-5">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-lg bg-neon-green/10 flex items-center justify-center flex-shrink-0">
-                                            <Shield className="w-5 h-5 text-neon-green" />
+                                        <div className="w-10 h-10 rounded-lg bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">
+                                            <Shield className="w-5 h-5 text-[#f59e0b]" />
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-foreground mb-1">Via Online Form</h3>
@@ -125,8 +125,8 @@ export default function DataDeletion() {
 
                             <div className="bg-card-bg border border-card-border rounded-xl p-6 mb-4">
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-8 h-8 rounded-full bg-neon-green/20 flex items-center justify-center">
-                                        <span className="text-neon-green font-bold text-sm">1</span>
+                                    <div className="w-8 h-8 rounded-full bg-[#f59e0b]/20 flex items-center justify-center">
+                                        <span className="text-[#f59e0b] font-bold text-sm">1</span>
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-foreground">Request Confirmation</h3>
@@ -135,8 +135,8 @@ export default function DataDeletion() {
                                 </div>
 
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-8 h-8 rounded-full bg-neon-green/20 flex items-center justify-center">
-                                        <span className="text-neon-green font-bold text-sm">2</span>
+                                    <div className="w-8 h-8 rounded-full bg-[#f59e0b]/20 flex items-center justify-center">
+                                        <span className="text-[#f59e0b] font-bold text-sm">2</span>
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-foreground">Identity Verification</h3>
@@ -145,8 +145,8 @@ export default function DataDeletion() {
                                 </div>
 
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-8 h-8 rounded-full bg-neon-green/20 flex items-center justify-center">
-                                        <span className="text-neon-green font-bold text-sm">3</span>
+                                    <div className="w-8 h-8 rounded-full bg-[#f59e0b]/20 flex items-center justify-center">
+                                        <span className="text-[#f59e0b] font-bold text-sm">3</span>
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-foreground">Data Deletion</h3>
@@ -155,8 +155,8 @@ export default function DataDeletion() {
                                 </div>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="w-8 h-8 rounded-full bg-neon-green/20 flex items-center justify-center">
-                                        <span className="text-neon-green font-bold text-sm">4</span>
+                                    <div className="w-8 h-8 rounded-full bg-[#f59e0b]/20 flex items-center justify-center">
+                                        <span className="text-[#f59e0b] font-bold text-sm">4</span>
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-foreground">Completion Notification</h3>
@@ -211,9 +211,9 @@ export default function DataDeletion() {
                             <h2 className="text-2xl font-bold text-foreground mb-4">
                                 6. After Deletion
                             </h2>
-                            <div className="bg-neon-green/10 border border-neon-green/20 rounded-xl p-5">
+                            <div className="bg-[#f59e0b]/10 border border-[#f59e0b]/20 rounded-xl p-5">
                                 <div className="flex items-start gap-3">
-                                    <CheckCircle className="w-5 h-5 text-neon-green flex-shrink-0 mt-0.5" />
+                                    <CheckCircle className="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5" />
                                     <div>
                                         <p className="text-foreground/80">
                                             Once data is deleted, your account will be permanently deactivated. You will not be able to log in or access other services with that account.
@@ -234,7 +234,7 @@ export default function DataDeletion() {
                             <p className="text-foreground/80 mb-4">
                                 If you have questions about this process:
                             </p>
-                            <p className="text-neon-green font-medium">
+                            <p className="text-[#f59e0b] font-medium">
                                 Email: lowhanfish@gmail.com
                             </p>
                             <p className="text-foreground/60 text-sm mt-2">
