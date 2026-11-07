@@ -169,6 +169,51 @@ export default function Hero3DCanvas({ className = "" }: Hero3DCanvasProps) {
     pointLight2.position.set(-3, -3, 2);
     scene.add(pointLight2);
 
+    // Canvas materials need their own palette; CSS dark variants cannot recolor WebGL.
+    const darkParticleColors = particleColors.slice();
+    const lightParticlePalette = [0x854d0e, 0xa16207, 0x57534e, 0xb45309].map(
+      (color) => new THREE.Color(color),
+    );
+    const applyTheme = () => {
+      const dark = document.documentElement.classList.contains("dark");
+      renderer.toneMappingExposure = dark ? 1.4 : 1;
+      coreMat.color.setHex(dark ? 0xfef08a : 0x854d0e);
+      coreMat.emissive.setHex(dark ? 0xfacc15 : 0x854d0e);
+      coreMat.emissiveIntensity = dark ? 0.9 : 0.35;
+      coreMat.metalness = dark ? 0.95 : 0;
+      coreMat.roughness = dark ? 0.15 : 0.8;
+      outerMat.color.setHex(dark ? 0xfde047 : 0xa16207);
+      outerMat.opacity = dark ? 0.45 : 0.65;
+      ringMat1.color.setHex(dark ? 0xfef08a : 0x92400e);
+      ringMat2.color.setHex(dark ? 0xfacc15 : 0x57534e);
+      ringMat2.opacity = dark ? 0.7 : 0.8;
+      for (const material of [coreMat, outerMat, ringMat1, ringMat2, particleMat]) {
+        material.toneMapped = dark;
+        material.needsUpdate = true;
+      }
+      // Additive particles wash out against white; normal blending preserves dark colors.
+      particleMat.blending = dark ? THREE.AdditiveBlending : THREE.NormalBlending;
+      particleMat.opacity = dark ? 0.95 : 0.8;
+      for (let i = 0; i < particleCount; i++) {
+        const color = lightParticlePalette[i % lightParticlePalette.length];
+        particleColors[i * 3] = dark ? darkParticleColors[i * 3] : color.r;
+        particleColors[i * 3 + 1] = dark ? darkParticleColors[i * 3 + 1] : color.g;
+        particleColors[i * 3 + 2] = dark ? darkParticleColors[i * 3 + 2] : color.b;
+      }
+      particleGeo.getAttribute("color").needsUpdate = true;
+      ambientLight.color.setHex(dark ? 0xfffbeb : 0xffffff);
+      pointLight1.color.setHex(dark ? 0xfef08a : 0xffffff);
+      pointLight2.color.setHex(dark ? 0xfacc15 : 0xffffff);
+      pointLight1.intensity = dark ? 5 : 1;
+      pointLight2.intensity = dark ? 5 : 1;
+    };
+    applyTheme();
+    const themeObserver = new MutationObserver(applyTheme);
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
     // Mouse Interaction
     let targetRotationX = 0;
     let targetRotationY = 0;
@@ -197,7 +242,7 @@ export default function Hero3DCanvas({ className = "" }: Hero3DCanvasProps) {
 
     // Animation Loop
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
@@ -231,6 +276,7 @@ export default function Hero3DCanvas({ className = "" }: Hero3DCanvasProps) {
     animate();
 
     return () => {
+      themeObserver.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
@@ -263,7 +309,7 @@ export default function Hero3DCanvas({ className = "" }: Hero3DCanvasProps) {
     <div
       ref={containerRef}
       className={`relative w-full h-[450px] sm:h-[500px] lg:h-[580px] pointer-events-auto cursor-grab active:cursor-grabbing ${className}`}
-      aria-label="Interactive 3D Beevora Radiant Yellow Core Hologram"
+      aria-label="Interactive 3D Beevora core hologram"
     />
   );
 }
