@@ -233,12 +233,14 @@ export default function Hero3DCanvas({ className = "" }: Hero3DCanvasProps) {
       if (!container) return;
       const w = container.clientWidth;
       const h = container.clientHeight;
+      if (!w || !h) return;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
     };
 
-    window.addEventListener("resize", handleResize);
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(container);
 
     // Animation Loop
     let animationFrameId: number;
@@ -278,7 +280,7 @@ export default function Hero3DCanvas({ className = "" }: Hero3DCanvasProps) {
     return () => {
       themeObserver.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", handleResize);
+      resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
 
       if (container && renderer.domElement) {
@@ -299,7 +301,7 @@ export default function Hero3DCanvas({ className = "" }: Hero3DCanvasProps) {
 
   if (!isSupported) {
     return (
-      <div className={`flex items-center justify-center ${className}`}>
+      <div className={`absolute inset-0 flex items-center justify-center ${className}`}>
         <div className="w-64 h-64 rounded-full bg-gradient-to-tr from-yellow-400/20 via-amber-400/20 to-yellow-200/20 blur-2xl animate-pulse" />
       </div>
     );
@@ -308,7 +310,7 @@ export default function Hero3DCanvas({ className = "" }: Hero3DCanvasProps) {
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-[450px] sm:h-[500px] lg:h-[580px] pointer-events-auto cursor-grab active:cursor-grabbing ${className}`}
+      className={`absolute inset-0 w-full h-full pointer-events-auto cursor-grab active:cursor-grabbing ${className}`}
       aria-label="Interactive 3D Beevora core hologram"
     />
   );

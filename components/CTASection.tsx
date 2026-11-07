@@ -35,17 +35,17 @@ export default function CTASection() {
               </h2>
 
               <p className="text-foreground/75 text-base lg:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-                Connect your team with TotO-L and Orbit-Trace today. Experience unified omni-channel
-                speed and automated CRM intelligence with zero setup delays.
+                Explore our SaaS platforms, validate an AI research idea, or build software tailored
+                to your business. Tell us about your data, workflows, and goals—we will help define the next step.
               </p>
 
               {/* Guarantees */}
               <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 text-xs sm:text-sm font-medium text-foreground/80">
                 {[
-                  "14-Day Free Trial",
-                  "No Credit Card Required",
-                  "Instant API Key Provisioning",
-                  "24/7 Dedicated Support",
+                  "SaaS Platforms",
+                  "AI Research & RAG",
+                  "Custom Software",
+                  "System Integration",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card-bg/60 border border-card-border">
                     <CheckCircle2 className="w-4 h-4 text-amber-700 dark:text-yellow-400" />
@@ -57,18 +57,18 @@ export default function CTASection() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
-                  href="#contact"
+                  href="mailto:hello@beevora.com?subject=Project%20consultation"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full btn-cyber-primary text-sm font-bold shadow-sm dark:shadow-xl"
                 >
-                  <span>Start Free Trial</span>
+                  <span>Discuss Your Project</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <a
-                  href="mailto:hello@beevora.com"
+                  href="#products"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full btn-cyber-outline text-sm font-semibold"
                 >
-                  <span>Talk with Engineers</span>
+                  <span>Explore SaaS Products</span>
                 </a>
               </div>
 

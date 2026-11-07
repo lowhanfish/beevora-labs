@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 const links = [
   { name: "Home", href: "/" },
   { name: "Products", href: "/#products" },
+  { name: "Services", href: "/#services" },
   { name: "About", href: "/#about" },
   { name: "Contact", href: "/#contact" },
 ];

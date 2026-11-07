@@ -20,8 +20,14 @@ const teamMembers = [
   {
     name: "Kiken S Batara",
     role: "AI Engineer",
-    image: "/images/photo1.png",
+    image: "/images/photo9.png",
     specialty: "LLM Pipeline & Predictive Ops",
+  },
+  {
+    name: "Bayu Lazuardi",
+    role: "Data Scientist & Data Analyst",
+    image: "/images/photo7.jpeg",
+    specialty: "Data Science & Analytics",
   },
   {
     name: "Hidayat Darmawan",
@@ -46,6 +52,12 @@ const teamMembers = [
     role: "Backend Engineer",
     image: "/images/photo6.png",
     specialty: "Database Engines & APIs",
+  },
+  {
+    name: "Fendy Anand",
+    role: "IoT Engineer",
+    image: "/images/photo8.jpeg",
+    specialty: "Internet of Things & Connected Systems",
   },
 ];
 
@@ -81,7 +93,7 @@ export default function About() {
           </h2>
           <p className="text-foreground/70 text-base lg:text-lg">
             We are builders, systems architects, and designers based in Indonesia, crafting
-            enterprise-grade SaaS technologies for businesses across the globe.
+            SaaS products, applied AI research, and AI-integrated software for businesses across the globe.
           </p>
         </div>
 
@@ -137,7 +149,11 @@ export default function About() {
             {teamMembers.map((member, index) => (
               <article key={member.name} className="team-member group">
                 <div className="team-portrait">
-                  <Image src={member.image} alt={member.name} fill sizes="(max-width: 639px) 48px, 56px" className="object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-105" />
+                  {member.image ? (
+                    <Image src={member.image} alt={member.name} fill sizes="(max-width: 639px) 48px, 56px" className="object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-105" />
+                  ) : (
+                    <span className="absolute inset-0 grid place-items-center font-display text-lg font-semibold text-neon-amber" aria-label={member.name}>BL</span>
+                  )}
                 </div>
                 <div className="min-w-0">
                   <p className="team-role">{member.role}</p>

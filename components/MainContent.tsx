@@ -4,6 +4,7 @@ import { useTheme } from "@/hooks/useTheme";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Products from "./Products";
+import Services from "./Services";
 import Features from "./Features";
 import InteractiveDemo from "./InteractiveDemo";
 import About from "./About";
@@ -23,6 +24,7 @@ export default function MainContent() {
       <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <main className="relative z-10">
         <Hero />
+        <Services />
         <Products />
         <Features />
         <InteractiveDemo />

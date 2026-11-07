@@ -15,6 +15,7 @@ interface NavbarProps {
 const defaultLinks = [
   { name: "Home", href: "#home" },
   { name: "Products", href: "#products" },
+  { name: "Services", href: "#services" },
   { name: "Features", href: "#features" },
   { name: "Architecture", href: "#demo" },
   { name: "About", href: "#about" },

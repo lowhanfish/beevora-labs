@@ -20,11 +20,11 @@ const footerLinks = {
     { name: "Global Edge Network", href: "#features" },
     { name: "REST & GraphQL APIs", href: "#features" },
   ],
-  Architecture: [
-    { name: "Live Sandbox", href: "#demo" },
-    { name: "Zero-Trust Security", href: "#features" },
-    { name: "System Status", href: "#" },
-    { name: "Release Notes", href: "#" },
+  Services: [
+    { name: "AI Research & RAG", href: "/#ai-research" },
+    { name: "AI Software Development", href: "/#ai-development" },
+    { name: "Integration & Automation", href: "/#services" },
+    { name: "Discuss a Project", href: "mailto:hello@beevora.com" },
   ],
   Company: [
     { name: "About Beevora", href: "#about" },
@@ -79,8 +79,8 @@ export default function Footer() {
             </a>
 
             <p className="text-foreground/75 text-sm max-w-sm leading-relaxed">
-              Empowering global enterprises with cutting-edge SaaS platforms for digital transformation,
-              omni-channel routing, and high-velocity customer relationship management.
+              SaaS platforms, applied AI research, and custom software development.
+              We connect AI with your knowledge, workflows, and business systems.
             </p>
 
             {/* Direct Contact Info */}

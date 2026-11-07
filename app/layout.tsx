@@ -28,8 +28,8 @@ const spaceGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Beevora Labs | Innovating Tomorrow's Technology",
-  description: "Beevora Labs - Your partner in digital transformation. We provide cutting-edge SaaS solutions including TotO-L Omni-channel Platform and Orbit-Trace CRM.",
+  title: "Beevora Labs | AI Research, Software Development & SaaS",
+  description: "Beevora Labs provides applied AI research, RAG and knowledge systems, AI-integrated custom software development, and SaaS platforms including TotO-L and Orbit-Trace.",
   icons: {
     icon: [
       { url: "/icon.ico/favicon-16x16.png", sizes: "16x16", type: "image/png" },
