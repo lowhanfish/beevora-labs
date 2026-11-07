@@ -352,3 +352,137 @@ html {
   line-height: 1.4;
   font-weight: 600;
 }
+
+@layer components {
+  /* Quiet, unified navigation in both themes. */
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    padding-block: 1rem;
+    transition: padding 200ms ease;
+  }
+
+  .site-header[data-scrolled="true"] {
+    padding-block: 0.625rem;
+  }
+
+  .nav-shell {
+    border: 1px solid var(--card-border);
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, var(--background) 94%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.035);
+  }
+
+  .site-header[data-scrolled="true"] .nav-shell {
+    background: var(--background);
+    box-shadow: 0 6px 24px rgb(0 0 0 / 0.07);
+  }
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4.25rem;
+    padding: 0.625rem 1.25rem;
+  }
+
+  .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+  }
+
+  .nav-logo {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: #171717;
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.625rem;
+    color: color-mix(in srgb, var(--foreground) 75%, transparent);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: color 160ms ease, background-color 160ms ease;
+  }
+
+  .nav-link:hover {
+    color: var(--foreground);
+    background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  }
+
+  .nav-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+    color: var(--foreground);
+    cursor: pointer;
+    transition: background-color 160ms ease;
+  }
+
+  .nav-icon-button:hover {
+    background: color-mix(in srgb, var(--foreground) 6%, transparent);
+  }
+
+  .nav-cta {
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--foreground);
+    color: var(--background);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: opacity 160ms ease;
+  }
+
+  .nav-cta:hover {
+    opacity: 0.85;
+  }
+
+  .nav-mobile {
+    max-height: calc(100dvh - 8rem);
+    overflow-y: auto;
+    margin-inline: 1rem;
+    padding-block: 0.75rem 1rem;
+    border-top: 1px solid var(--card-border);
+  }
+
+  @media (width < 40rem) {
+    .site-header {
+      padding-block: 0.75rem;
+    }
+
+    .nav-bar {
+      gap: 0.5rem;
+      min-height: 4rem;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .nav-brand {
+      gap: 0.5rem;
+    }
+  }
+}
