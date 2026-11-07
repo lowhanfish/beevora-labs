@@ -514,3 +514,146 @@ html {
     }
   }
 }
+
+@layer components {
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    border: 1px solid var(--card-border);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: var(--card-bg);
+  }
+
+  .about-stat {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .about-stat:nth-child(odd) { border-right: 1px solid var(--card-border); }
+  .about-stat:nth-last-child(-n + 2) { border-bottom: 0; }
+
+  .about-value {
+    border: 1px solid var(--card-border);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: var(--card-bg);
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .about-value:hover {
+    border-color: color-mix(in srgb, var(--neon-amber) 45%, var(--card-border));
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.04);
+  }
+
+  .about-value { padding: clamp(1.25rem, 2.5vw, 2rem); }
+  .about-value-icon {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+    color: var(--neon-amber);
+  }
+
+  .about-value-art {
+    display: grid;
+    place-items: center;
+    height: 10rem;
+    margin-block: 0.75rem;
+    color: var(--neon-amber);
+    background-image: radial-gradient(color-mix(in srgb, var(--foreground) 12%, transparent) 1px, transparent 1px);
+    background-size: 14px 14px;
+    mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
+  }
+
+  .craft-orbits, .craft-target { position: relative; width: 8rem; height: 8rem; }
+  .craft-orbits span {
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    transform: rotate(-35deg) scaleX(0.45);
+  }
+  .craft-orbits span:nth-child(2) { transform: rotate(35deg) scaleX(0.45); }
+  .craft-orbits span:nth-child(3) { transform: rotate(90deg) scaleX(0.45); }
+  .craft-orbits i, .craft-target i {
+    position: absolute;
+    inset: calc(50% - 0.35rem);
+    background: currentColor;
+    border-radius: 50%;
+  }
+  .craft-target span { position: absolute; inset: 0.5rem; border: 1px solid currentColor; border-radius: 50%; }
+  .craft-target span:nth-child(2) { inset: 1.6rem; opacity: 0.65; }
+  .craft-target span:nth-child(3) { inset: 2.7rem; background: color-mix(in srgb, currentColor 8%, transparent); }
+  .craft-bars { display: flex; align-items: flex-end; gap: 0.5rem; width: 8rem; height: 6rem; }
+  .craft-bars span { flex: 1; border: 1px solid currentColor; border-radius: 0.25rem 0.25rem 0 0; background: color-mix(in srgb, currentColor 12%, transparent); }
+  .craft-bars span:last-child { background: currentColor; }
+
+  @media (width >= 64rem) {
+    .about-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .about-stat { padding: 1.75rem 2rem; border-bottom: 0; }
+    .about-stat:not(:last-child) { border-right: 1px solid var(--card-border); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-value { transition: none; }
+  }
+}
+
+@layer components {
+  .team-studio {
+    display: grid;
+    gap: 2.5rem;
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid var(--card-border);
+  }
+
+  .team-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    color: color-mix(in srgb, var(--foreground) 65%, transparent);
+    margin-bottom: 1.5rem;
+  }
+
+  .team-eyebrow > span { width: 0.5rem; height: 0.5rem; background: var(--neon-amber); border-radius: 50%; }
+  .team-heading { font-size: clamp(2rem, 3.8vw, 3.5rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.045em; }
+  .team-heading > span { font-family: var(--font-editorial); font-weight: 400; font-style: italic; color: var(--neon-amber); }
+  .team-contact { display: inline-flex; align-items: center; gap: 1rem; min-height: 2.75rem; margin-top: 1.25rem; border-bottom: 1px solid var(--card-border); font-size: 0.875rem; font-weight: 500; }
+  .team-contact:hover { color: var(--neon-amber); border-color: currentColor; }
+
+  .team-member {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .team-member:first-child { border-top: 1px solid var(--card-border); }
+  .team-portrait { position: relative; width: 3rem; aspect-ratio: 1; overflow: hidden; border-radius: 0.75rem; background: color-mix(in srgb, var(--foreground) 6%, var(--background)); }
+  .team-role { font-size: 0.6875rem; line-height: 1.5; letter-spacing: 0.04em; text-transform: uppercase; color: var(--neon-amber); margin-bottom: 0.25rem; }
+  .team-name { font-size: clamp(1rem, 1.8vw, 1.375rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.025em; }
+  .team-specialty { font-size: 0.75rem; color: color-mix(in srgb, var(--foreground) 60%, transparent); margin-top: 0.375rem; }
+  .team-index { align-self: start; font-family: var(--font-mono); font-size: 0.6875rem; color: color-mix(in srgb, var(--foreground) 40%, transparent); }
+  .team-signoff { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; padding-top: 1rem; font-size: 0.6875rem; color: color-mix(in srgb, var(--foreground) 55%, transparent); }
+
+  @media (width >= 40rem) {
+    .team-member { grid-template-columns: 3.5rem minmax(0, 1fr) auto; gap: 1rem; }
+    .team-portrait { width: 3.5rem; }
+    .team-role { font-size: 0.75rem; }
+    .team-specialty { font-size: 0.8125rem; }
+  }
+
+  @media (width >= 64rem) {
+    .team-studio { grid-template-columns: 1fr 1.45fr; gap: 5rem; align-items: start; }
+    .team-intro { position: sticky; top: 8rem; }
+  }
+}
